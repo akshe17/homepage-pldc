@@ -1,13 +1,17 @@
-@font-face{
-    font-family: "Open Sans";
-    src: url(../public/OpenSans-VariableFont_wdth\,wght.ttf);
- }
+@font-face {
+  font-family: "Open Sans";
+  src: url("/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
- *{
-   font-family: "Open Sans"
- }
+* {
+  font-family: 'Open Sans', sans-serif;
+}
 
-
+html{
+  scroll-behavior: smooth;
+}
     
    
   .clip-path-custom, .clip-style {

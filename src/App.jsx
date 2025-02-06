@@ -17,6 +17,7 @@ function App() {
     AOS.init({
       duration: 500, 
       once: false,
+      disable : 'mobile',
     });
   }, []);
 
@@ -24,36 +25,37 @@ return(
     <>
     <Navbar></Navbar>
 
-    <div className="min-h-screen flex relative flex-col items-center justify-start md:justify-center">
+    <div className="min-h-[600px] md:min-h-[800px] flex relative flex-col items-center justify-start md:justify-center">
 
   <div className="h-full  w-full object-cover absolute inset-0 -z-1">
     <img src={heroImg} alt="Example Image" className="w-full h-full object-cover brightness-30 rounded-lg shadow-md" />
   </div>
 
 
-  <div className="flex flex-col mt-[15rem] md:mt-0 justify-center items-center  text-center space-y-6">
+  <div className="flex flex-col mt-[8rem] md:mt-0 justify-center items-center  text-center space-y-3">
     <div className="w-auto p-2">
-    <h1 className="text-5xl text-white font-bold leading-tight">Upgrade Your Home With 5G Internet</h1>
+    <h1 className="text-4xl md:text-5xl text-white font-bold leading-tight">Upgrade Your Home With 5G Internet</h1>
 
 
     </div>
  
     <div className="w-auto md:w-[600px]  my-5 text-center">
-      <p className="text-gray-300 text-sm md:text-xl leading-relaxed">
+      <p className="text-gray-300  hidden md:block text-xl leading-relaxed">
         Unlock lightning-fast speeds and unbeatable reliability, bringing smooth streaming, effortless gaming, and seamless browsing to every corner of your home.
       </p>
     </div>
 
 
-    <div className=" flex mt-5 space-x-4">
-    <button className="backdrop-blur-xl border-1 border-white text-white font-bold cursor-pointer text-sm py-3 px-6 rounded-full shadow-md hover:bg-white hover:text-black transition-all duration-300">
-        LEARN MORE
-      </button>
-      <button className="bg-red-600 text-white text-sm cursor-pointer  font-bold py-3 px-6 rounded-full shadow-md hover:bg-red-700 transition-transform duration-300">
-        FIND YOUR PLAN
-      </button>
     
-    </div>
+    <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+  <a href="#pldc-plan" className="bg-red-600 text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-red-800 hover:bg-red-700 transition-transform duration-300 transform hover:scale-105">
+    FIND YOUR PLAN
+  </a>
+  <a href="#learn-more" className="border border-white text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
+    LEARN MORE
+  </a>
+</div>
+
   </div>
 </div>
 
@@ -69,7 +71,7 @@ return(
 
 
 
-    <div className=" h-[100vh] bg-slate-900">
+    <div className=" min-h-[800px] bg-slate-900">
     <div className="grid grid-cols-1 w-full h-full md:grid-cols-2 gap-6 items-center p-6">
 
   <div data-aos="fade-right" className="p-4">
@@ -84,7 +86,7 @@ return(
     <p className="text-lg text-gray-300">Stream your favorite movies in lightning speed with our blazing fast 5G connection. No more buffering, just pure entertainment.</p>
 
     
-    <button className="bg-red-600 hover:bg-red-700 cursor-pointer text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl w-max">
+    <button className="bg-red-600  focus:bg-red-800 hover:bg-red-700 cursor-pointer text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl w-max">
       Plan Now 🚀
     </button>
   </div>
@@ -98,7 +100,7 @@ return(
 
 
 
-    <div className="flex bg-slate-900 flex-col-reverse md:flex-row w-full h-full gap-6 items-center p-6">
+    <div className="flex bg-slate-900 flex-col-reverse md:flex-row w-full min-h-[800px] gap-6 items-center p-6">
 
 <div data-aos="fade-right" className="flex flex-col p-4 text-white space-y-4">
  
@@ -110,7 +112,7 @@ return(
 </p>
 
   
-  <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl w-max">
+  <button className="bg-red-600  focus:bg-red-800 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl w-max">
     Plan Now 🚀
   </button>
 </div>
@@ -126,7 +128,7 @@ return(
 </div>
 
 
-<div data-aos="fade-up" className="h-auto w-full flex flex-col justify-center items-center p-6 mt-[5rem]">
+<div data-aos="fade-up" id="pldc-plan" className="h-auto w-full flex flex-col justify-center items-center p-6 mt-[20rem] md:mt-[5rem]">
   <div className="relative">
   <h1 className="text-4xl p-4 my-5 text-white font-bold">INTERNET PLAN</h1>
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-rocket-takeoff-fill text-red-600 absolute top-8 left-0" viewBox="0 0 16 16">
@@ -136,20 +138,24 @@ return(
 
   </div>
 
- <div className="flex mt-5 justify-center items-center gap-10 flex-wrap p-2">
+ <div className="flex mt-[5rem] md:mt-5 justify-center items-center gap-[10rem] md:gap-10 flex-wrap p-2">
 
- <div className="relative w-[400px] min-h-[500px] bg-gradient-to-br from-slate-700 to-gray-900 p-10 rounded-2xl flex flex-col items-center shadow-lg border border-gray-600 overflow-hidden clip-style">
+
+
+ <div className="relative w-[300px] md:w-[400px] md:min-h-[500px] bg-gradient-to-br from-slate-700 to-gray-900 p-10 rounded-2xl flex flex-col items-center shadow-lg border border-gray-600 overflow-hidden clip-style">
  
  <div className="absolute -top-10 -left-10 w-40 h-40 bg-red-600 opacity-20 blur-3xl rounded-full"></div>
  <div className="flex flex-col justify-between h-full flex-auto">
   <div className="">
 
   </div>
-  <h1 className="text-white text-8xl flex justify-start font-extrabold tracking-wide"><span className='text-4xl italic p-2'>₱</span>999</h1>
+  <h1 className="text-white text-5xl md:text-8xl flex justify-start font-extrabold tracking-wide"><span className='text-2xl md:text-4xl italic p-2'>₱</span>999</h1>
  <p className="text-gray-300 text-lg mt-2 uppercase tracking-widest">Starting Price</p>
 
  <div className="w-full h-1 bg-red-600 my-4 rounded-lg"></div>
 
+
+ <div className="flex flex-col h-full justify-between">
 
  <div className="h-[100px] overflow-hidden relative">
   <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
@@ -157,13 +163,19 @@ return(
   Get access to priority support, advanced tools, and a seamless experience.
   </p>
 
+</div>
+
+
+
+
+
 
  </div>
  
 
  
 
- <button className="mt-6 w-full bg-red-600 cursor-pointer text-white py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-red-700">
+ <button className="mt-6 w-full  focus:bg-red-800 bg-red-600 cursor-pointer text-white py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-red-700">
     Get Plan
   </button>
 </div>
@@ -186,36 +198,39 @@ return(
 </div>
 
 
-
-
-
-
-
-<div className="relative w-[400px] min-h-[500px] bg-gradient-to-br from-slate-700 to-gray-900 p-10 rounded-2xl flex flex-col items-center shadow-lg border border-gray-600 overflow-hidden clip-style">
+<div className="relative w-[300px] md:w-[400px] md:min-h-[500px] bg-gradient-to-br from-slate-700 to-gray-900 p-10 rounded-2xl flex flex-col items-center shadow-lg border border-gray-600 overflow-hidden clip-style">
  
  <div className="absolute -top-10 -left-10 w-40 h-40 bg-red-600 opacity-20 blur-3xl rounded-full"></div>
  <div className="flex flex-col justify-between h-full flex-auto">
   <div className="">
 
   </div>
-  <h1 className="text-white text-8xl flex justify-start font-extrabold tracking-wide"><span className='text-4xl italic p-2'>₱</span>1299</h1>
+  <h1 className="text-white text-5xl md:text-8xl flex justify-start font-extrabold tracking-wide"><span className='text-2xl md:text-4xl italic p-2'>₱</span>1299</h1>
  <p className="text-gray-300 text-lg mt-2 uppercase tracking-widest">Elite Booster Plan</p>
 
  <div className="w-full h-1 bg-red-600 my-4 rounded-lg"></div>
 
+
+ <div className="flex flex-col h-full justify-between">
 
  <div className="h-[100px] overflow-hidden relative">
   <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
   Power up your experience with our elite booster plan for only ₱1299. Enjoy seemless connectivity, start your plan!
   </p>
 
+</div>
+
+
+
+
+
 
  </div>
  
 
  
 
- <button className="mt-6 w-full bg-red-600 cursor-pointer text-white py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-red-700">
+ <button className="mt-6 w-full focus:bg-red-800 bg-red-600 cursor-pointer text-white py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-red-700">
     Get Plan
   </button>
 </div>
@@ -241,14 +256,14 @@ return(
 
 
 
-<div className="relative w-[400px] min-h-[500px] bg-gradient-to-br from-slate-700 to-gray-900 p-10 rounded-2xl flex flex-col items-center shadow-lg border border-gray-600 overflow-hidden clip-style">
+<div className="relative w-[300px] md:w-[400px] md:min-h-[500px] bg-gradient-to-br from-slate-700 to-gray-900 p-10 rounded-2xl flex flex-col items-center shadow-lg border border-gray-600 overflow-hidden clip-style">
  
  <div className="absolute -top-10 -left-10 w-40 h-40 bg-red-600 opacity-20 blur-3xl rounded-full"></div>
  <div className="flex flex-col justify-between h-full flex-auto">
   <div className="">
 
   </div>
-  <h1 className="text-white text-8xl flex justify-start font-extrabold tracking-wide"><span className='text-4xl italic p-2'>₱</span>1999</h1>
+  <h1 className="text-white text-5xl md:text-8xl flex justify-start font-extrabold tracking-wide"><span className='text-2xl md:text-4xl italic p-2'>₱</span>1999</h1>
  <p className="text-gray-300 text-lg mt-2 uppercase tracking-widest">Premium Core Plan</p>
 
  <div className="w-full h-1 bg-red-600 my-4 rounded-lg"></div>
@@ -274,7 +289,7 @@ return(
 
  
 
- <button className="mt-6 w-full bg-red-600 cursor-pointer text-white py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-red-700">
+ <button className="mt-6 w-full bg-red-600 cursor-pointer  focus:bg-red-800 text-white py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-red-700">
     Get Plan
   </button>
 </div>
@@ -308,8 +323,8 @@ return(
 
 
 
-<div className=" h-[100vh] bg-slate-900">
-    <div className="grid grid-cols-1 w-full h-full md:grid-cols-2 gap-6 items-center p-6">
+<div id="learn-more" className=" min-h-[500px] mt-[20rem] md:mt-[20rem] bg-slate-900">
+    <div className="grid grid-cols-1 w-full h-full md:grid-cols-2 gap-0 items-center p-6">
 
   <div data-aos="fade-right" className="p-4">
     <div className="w-full h-full overflow-hidden relative">
@@ -320,7 +335,7 @@ return(
 
   <div data-aos="fade-left" className="flex flex-col p-4 text-white space-y-4">
     <h1 className="text-3xl md:text-5xl font-bold leading-tight italic">PL<span className="text-red-600">DC NET</span>, The Fastest Internet In The Philippines.</h1>
-    <p className='text-xl text-gray-200'><span className='italic font-bold'>PL<span className='text-red-600'>DC NET</span></span> delivers the fastest and most reliable internet connection in the Philippines, ensuring seamless browsing, streaming, and gaming experiences. With cutting-edge technology and top-tier infrastructure, it provides ultra-high speeds and low latency, making it the ultimate choice for both homes and businesses.</p>
+    <p className='text-sm md:text-xl text-gray-200'><span className='italic font-bold'>PL<span className='text-red-600'>DC NET</span></span> delivers the fastest and most reliable internet connection in the Philippines, ensuring seamless browsing, streaming, and gaming experiences. With cutting-edge technology and top-tier infrastructure, it provides ultra-high speeds and low latency, making it the ultimate choice for both homes and businesses.</p>
  
   </div>
 
@@ -371,19 +386,19 @@ return(
     <img src={section4}   loading="lazy" className='w-full h-full object-cover' alt="Why choose PLDC" />
   </div>
 
-  <div  data-aos="fade-left" className="flex flex-col gap-5 text-left px-10 py-4">
+  <div  data-aos="fade-left" className="flex flex-col gap-5 p-0 md:p-4 text-left  py-4">
     
    
    <h1 className='text-4xl md:text-5xl text-gray-100'>Why Choose <span className='text-gray-200 italic font-bold'>PL<span className='text-red-600'>DC NET</span></span>?</h1>
-   <p className='text-gray-300 text-xl'>  Enjoy ultra-fast internet, seamless connectivity, and dedicated customer support. 
+   <p className='text-gray-300 text-sm md:text-xl'>  Enjoy ultra-fast internet, seamless connectivity, and dedicated customer support. 
   Whether for work, gaming, or streaming, we ensure a lag-free experience.
 </p>
 
-<div className="flex mt-[3rem] gap-5 flex-row">
+<div className="flex mt-[3rem] gap-5 flex-col md:flex-row">
 <button className="backdrop-blur-xl border-1 border-white text-white font-bold cursor-pointer text-sm py-3 px-6 rounded-full shadow-md hover:bg-white hover:text-black transition-all duration-300">
         LEARN MORE
       </button>
-      <button className="bg-red-600 text-white text-sm cursor-pointer  font-bold py-3 px-6 rounded-full shadow-md hover:bg-red-700 transition-transform duration-300">
+      <button className="bg-red-600  focus:bg-red-800 text-white  text-sm cursor-pointer  font-bold py-3 px-6 rounded-full shadow-md hover:bg-red-700 transition-transform duration-300">
         GET IN TOUCH
       </button>
 </div>
@@ -396,7 +411,7 @@ return(
 
 
 
-<div className="w-full h-screen mt-[8rem] grid grid-cols-1 md:grid-cols-2">
+<div className="w-full min-h-[800px] mt-[8rem] grid grid-cols-1 md:grid-cols-2">
 
   <div className="relative flex justify-center items-center bg-black text-white px-8 py-12">
 
@@ -414,7 +429,7 @@ return(
         Our customers experience blazing-fast speeds and seamless connectivity. 
         Read their testimonials and see why we are the top choice for reliable internet.
       </p>
-      <button className="mt-6 bg-red-600 text-white text-lg font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 hover:scale-105 transition-transform duration-300">
+      <button className="mt-6 bg-red-600 text-white text-lg font-bold py-3  focus:bg-red-800 px-8 rounded-full shadow-lg hover:bg-red-700 hover:scale-105 transition-transform duration-300">
         CHECK REVIEWS
       </button>
     </div>
@@ -436,7 +451,7 @@ return(
         Stay informed with our latest news, service updates, and important announcements. 
         Keep track of new features, scheduled maintenance, and more.
       </p>
-      <button className="mt-6 bg-blue-600 text-white text-lg font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 hover:scale-105 transition-transform duration-300">
+      <button className="mt-6 bg-blue-600 text-white text-lg font-bold py-3 px-8 rounded-full shadow-lg  focus:bg-blue-800 hover:bg-blue-700 hover:scale-105 transition-transform duration-300">
         VIEW UPDATES
       </button>
     </div>
